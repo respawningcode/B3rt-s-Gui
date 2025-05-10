@@ -192,6 +192,7 @@ local function activate()
 															task.spawn(function()
 																while act do
 																	humanoidRootPart.CFrame = close.Parent:WaitForChild('HumanoidRootPart').CFrame * CFrame.new(0, math.random(-1, 1) / 2, 0) * CFrame.Angles(math.random(-1, 1), math.random(-1, 1), 0)
+																	track:Play(0, 1, 5)
 																	task.wait()
 																	
 																end
