@@ -300,7 +300,15 @@ local function activate()
 									
 									local distortion = Instance.new('DistortionSoundEffect', sound)
 									distortion.Level = 1.5
-									
+
+									task.spawn(function()
+										while task.wait() do
+											if not sound.Playing then
+												sound:Destroy()
+
+											end
+										end
+									end)
 								end
 							end
 						end)
