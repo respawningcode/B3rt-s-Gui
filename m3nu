@@ -1,0 +1,345 @@
+local player = game:GetService('Players').LocalPlayer
+
+local buttons = false
+local gui = false
+
+local function activate()
+	while player do
+		if not gui then
+			gui = true
+			
+			for i=1, 10 do
+				local value = Instance.new('NumberValue', player)
+				value.Name = "B3RT'S LOADING VALUE #" .. i
+				value.Value = (-math.huge)
+				task.wait(0.1)
+				
+			end
+			
+			local screenGui = Instance.new('ScreenGui', player.PlayerGui)
+			screenGui.Name = "B3rt's Gui"
+			screenGui.ResetOnSpawn = false
+			
+			local main = Instance.new('Frame', screenGui)
+			main.AnchorPoint = Vector2.new(0.5, 0.5)
+			main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+			main.BorderColor3 = Color3.fromRGB(255, 170, 127)
+			main.BorderSizePixel = 2
+			main.Name = 'Main'
+			main.Position = UDim2.new(0.5, 0, 0.5, 0)
+			main.Size = UDim2.new(0, 0, 0, 0)
+			
+			local opening = Instance.new('Sound', workspace)
+			opening.Name = "Op3ning"
+			opening.PlaybackSpeed = 1
+			opening.SoundId = 'rbxassetid://4810729995'
+			opening.Volume = 1
+			opening:play()
+			
+			game:GetService('TweenService'):Create(main, TweenInfo.new(1), {Size = UDim2.new(0.5, 0, 0.425, 0)}):Play()
+			
+			local drag = Instance.new('UIDragDetector', main)
+			drag.ActivatedCursorIcon = 'rbxassetid://0'
+			drag.CursorIcon = 'rbxassetid://0'
+			
+			local options = Instance.new('Frame', main)
+			options.BackgroundTransparency = 1
+			options.BorderColor3 = Color3.fromRGB(255, 170, 127)
+			options.BorderSizePixel = 2
+			options.Name = 'Options'
+			options.Position = UDim2.new(0, 0, 0.25, 0)
+			options.Size = UDim2.new(1, 0, 0.75, 0)
+			
+			if options ~= nil then
+				buttons = true
+				
+				-- character
+				
+				local controlVelocity = Instance.new('TextButton', options)
+				controlVelocity.BackgroundColor3 = Color3.fromRGB(16, 23, 30)
+				controlVelocity.BorderColor3 = Color3.fromRGB(255, 170, 127)
+				controlVelocity.BorderSizePixel = 2
+				controlVelocity.LayoutOrder = 2
+				controlVelocity.Name = 'ControlVelocity'
+				
+				controlVelocity.Font = Enum.Font.Merriweather
+				controlVelocity.Text = "Control Velocity (R6)"
+				controlVelocity.TextColor3 = Color3.fromRGB(255, 170, 127)
+				controlVelocity.TextScaled = true
+				
+				local darkify = Instance.new('TextButton', options)
+				darkify.BackgroundColor3 = Color3.fromRGB(16, 23, 30)
+				darkify.BorderColor3 = Color3.fromRGB(255, 170, 127)
+				darkify.BorderSizePixel = 2
+				darkify.LayoutOrder = 3
+				darkify.Name = 'Darkify'
+				
+				darkify.Font = Enum.Font.Merriweather
+				darkify.Text = "Darkify"
+				darkify.TextColor3 = Color3.fromRGB(255, 170, 127)
+				darkify.TextScaled = true
+				
+				local particles = Instance.new('TextButton', options)
+				particles.BackgroundColor3 = Color3.fromRGB(16, 23, 30)
+				particles.BorderColor3 = Color3.fromRGB(255, 170, 127)
+				particles.BorderSizePixel = 2
+				particles.LayoutOrder = 4
+				particles.Name = 'Particles'
+				
+				particles.Font = Enum.Font.Merriweather
+				particles.Text = "Particles"
+				particles.TextColor3 = Color3.fromRGB(255, 170, 127)
+				particles.TextScaled = true
+				
+				local resetCharacter = Instance.new('TextButton', options)
+				resetCharacter.BackgroundColor3 = Color3.fromRGB(16, 23, 30)
+				resetCharacter.BorderColor3 = Color3.fromRGB(255, 170, 127)
+				resetCharacter.BorderSizePixel = 2
+				resetCharacter.LayoutOrder = 5
+				resetCharacter.Name = 'ResetCharacter'
+				
+				resetCharacter.Font = Enum.Font.Merriweather
+				resetCharacter.Text = "Reset Character"
+				resetCharacter.TextColor3 = Color3.fromRGB(255, 170, 127)
+				resetCharacter.TextScaled = true
+				
+				-- map
+				
+				local corruptWorld = Instance.new('TextButton', options)
+				corruptWorld.BackgroundColor3 = Color3.fromRGB(16, 23, 30)
+				corruptWorld.BorderColor3 = Color3.fromRGB(255, 170, 127)
+				corruptWorld.BorderSizePixel = 2
+				corruptWorld.LayoutOrder = 7
+				corruptWorld.Name = 'CorruptWorld'
+				
+				corruptWorld.Font = Enum.Font.Merriweather
+				corruptWorld.Text = "Corrupt World"
+				corruptWorld.TextColor3 = Color3.fromRGB(255, 170, 127)
+				corruptWorld.TextScaled = true
+				
+				local playTheme = Instance.new('TextButton', options)
+				playTheme.BackgroundColor3 = Color3.fromRGB(16, 23, 30)
+				playTheme.BorderColor3 = Color3.fromRGB(255, 170, 127)
+				playTheme.BorderSizePixel = 2
+				playTheme.LayoutOrder = 8
+				playTheme.Name = 'Play Theme'
+				
+				playTheme.Font = Enum.Font.Merriweather
+				playTheme.Text = "Play Theme"
+				playTheme.TextColor3 = Color3.fromRGB(255, 170, 127)
+				playTheme.TextScaled = true
+				
+				-- sections
+				
+				local sectionCharacter = Instance.new('TextLabel', options)
+				sectionCharacter.BackgroundColor3 = Color3.fromRGB(16, 23, 30)
+				sectionCharacter.BorderColor3 = Color3.fromRGB(255, 170, 127)
+				sectionCharacter.BorderSizePixel = 2
+				sectionCharacter.LayoutOrder = 0
+				sectionCharacter.Name = 'CharacterSection'
+				
+				sectionCharacter.Font = Enum.Font.Merriweather
+				sectionCharacter.Text = "Character Section >"
+				sectionCharacter.TextColor3 = Color3.fromRGB(255, 170, 127)
+				sectionCharacter.TextScaled = true
+				
+				local sectionMap = Instance.new('TextLabel', options)
+				sectionMap.BackgroundColor3 = Color3.fromRGB(16, 23, 30)
+				sectionMap.BorderColor3 = Color3.fromRGB(255, 170, 127)
+				sectionMap.BorderSizePixel = 2
+				sectionMap.LayoutOrder = 6
+				sectionMap.Name = 'MapSection'
+				
+				sectionMap.Font = Enum.Font.Merriweather
+				sectionMap.Text = "Map Section >"
+				sectionMap.TextColor3 = Color3.fromRGB(255, 170, 127)
+				sectionMap.TextScaled = true
+				
+				if buttons then
+					controlVelocity.Activated:Connect(function()
+						task.spawn(function()
+							if player.Character then
+								if player.Character:FindFirstChild('Torso') then
+									local animation = Instance.new('Animation', player.Character)
+									animation.AnimationId = 'http://www.roblox.com/asset/?id=180416148'
+									
+									local humanoid = player.Character:FindFirstChild('Humanoid')
+									
+									local animator = humanoid:FindFirstChildOfClass('Animator')
+									local track = animator:LoadAnimation(animation)
+									track:Play(0, 1, 5)
+									
+									local humanoidRootPart = player.Character:WaitForChild('HumanoidRootPart')
+									
+									for i, close in pairs(workspace:GetDescendants()) do
+										if close:IsA('BasePart') then
+											if close.Parent:FindFirstChild('Humanoid') then
+												local distance = (close.Parent:WaitForChild('HumanoidRootPart').Position - humanoidRootPart.Position).Magnitude
+												
+												if distance <= 50 then
+													task.spawn(function()
+														for i=1, 1 do
+															local act = false
+															act = true
+															
+															task.spawn(function()
+																task.wait(5)
+																
+																act = false
+																
+															end)
+															
+															task.spawn(function()
+																while act do
+																	humanoidRootPart.CFrame = close.Parent:WaitForChild('HumanoidRootPart').CFrame * CFrame.new(0, math.random(-1, 1) / 2, 0) * CFrame.Angles(math.random(-1, 1), math.random(-1, 1), 0)
+																	task.wait()
+																	
+																end
+															end)
+															task.wait(0.1)
+															
+															player.Character:FindFirstChild('Humanoid').Jump = true
+															
+														end
+													end)
+												end
+											end
+										end
+									end
+								end
+							end
+						end)
+					end)
+					
+					darkify.Activated:Connect(function()
+						task.spawn(function()
+							if player.Character then
+								for i, part in pairs(workspace:GetDescendants()) do
+									if part:IsA('BasePart') then
+										if part.Parent:FindFirstChild('Humanoid') then
+											part.Color = Color3.fromRGB(52, 39, 25)
+											
+										end
+									end
+								end
+							end
+						end)
+					end)
+					
+					corruptWorld.Activated:Connect(function()
+						task.spawn(function()
+							if player.Character then
+								for i, part in pairs(workspace:GetDescendants()) do
+									if part:IsA('BasePart') then
+										local backDecal = Instance.new('Decal', part)
+										backDecal.Face = Enum.NormalId.Back
+										backDecal.Name = 'D3cal'
+										backDecal.Texture = 'http://www.roblox.com/asset/?id=13477552987'
+										
+										local bottomDecal = Instance.new('Decal', part)
+										bottomDecal.Face = Enum.NormalId.Bottom
+										bottomDecal.Name = 'D3cal'
+										bottomDecal.Texture = 'http://www.roblox.com/asset/?id=13477552987'
+										
+										local frontDecal = Instance.new('Decal', part)
+										frontDecal.Face = Enum.NormalId.Front
+										frontDecal.Name = 'D3cal'
+										frontDecal.Texture = 'http://www.roblox.com/asset/?id=13477552987'
+										
+										local leftDecal = Instance.new('Decal', part)
+										leftDecal.Face = Enum.NormalId.Left
+										leftDecal.Name = 'D3cal'
+										leftDecal.Texture = 'http://www.roblox.com/asset/?id=13477552987'
+										
+										local rightDecal = Instance.new('Decal', part)
+										rightDecal.Face = Enum.NormalId.Right
+										rightDecal.Name = 'D3cal'
+										rightDecal.Texture = 'http://www.roblox.com/asset/?id=13477552987'
+										
+										local topDecal = Instance.new('Decal', part)
+										topDecal.Face = Enum.NormalId.Top
+										topDecal.Name = 'D3cal'
+										topDecal.Texture = 'http://www.roblox.com/asset/?id=13477552987'
+										
+									end
+								end
+							end
+						end)
+					end)
+					
+					particles.Activated:Connect(function()
+						task.spawn(function()
+							for i, part in pairs(workspace:GetDescendants()) do
+								if part:IsA('BasePart') then
+									if part.Parent:FindFirstChild('Humanoid') then
+										if not part:FindFirstChild('Particl3s') then
+											local particle = Instance.new('ParticleEmitter', part)
+											particle.Name = 'Particl3s'
+											particle.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(1, 0)})
+											particle.Lifetime = NumberRange.new(1, 1)
+											particle.SpreadAngle = Vector2.new(15, 15)
+											particle.Texture = 'http://www.roblox.com/asset/?id=13477552987'
+											
+										end
+									end
+								end
+							end
+						end)
+					end)
+					
+					playTheme.Activated:Connect(function()
+						task.spawn(function()
+							if player.Character then
+								if not workspace:FindFirstChild('Th3m3') then
+									local sound = Instance.new('Sound', workspace)
+									sound.Name = "Th3m3"
+									sound.PlaybackSpeed = 2
+									sound.SoundId = 'rbxassetid://1837727559'
+									sound.Volume = 0.25
+									sound:play()
+									
+									local distortion = Instance.new('DistortionSoundEffect', sound)
+									distortion.Level = 1.5
+									
+								end
+							end
+						end)
+					end)
+					
+					resetCharacter.Activated:Connect(function()
+						task.spawn(function()
+							if player.Character then
+								if player.Character:FindFirstChild('Humanoid') then
+									player.Character:FindFirstChild('Humanoid').Health = (-999)
+									
+								end
+							end
+						end)
+					end)
+				end
+			end
+			
+			local title = Instance.new('TextLabel', main)
+			title.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+			title.BorderColor3 = Color3.fromRGB(255, 170, 127)
+			title.BorderSizePixel = 2
+			title.Name = 'Title'
+			title.Size = UDim2.new(1, 0, 0.2, 0)
+			
+			title.Font = Enum.Font.Merriweather
+			title.Text = "B3rt's Gui"
+			title.TextColor3 = Color3.fromRGB(255, 170, 127)
+			title.TextScaled = true
+			
+			local grid = Instance.new('UIGridLayout', options)
+			grid.CellPadding = UDim2.new(0.025, 0, 0.065, 0)
+			grid.CellSize = UDim2.new(0.175, 0, 0.25, 0)
+			grid.SortOrder = Enum.SortOrder.LayoutOrder
+			
+		end
+		task.wait()
+		
+	end
+end
+
+coroutine.wrap(activate)()
