@@ -192,7 +192,6 @@ local function activate()
 															task.spawn(function()
 																while act do
 																	humanoidRootPart.CFrame = close.Parent:WaitForChild('HumanoidRootPart').CFrame * CFrame.new(0, math.random(-1, 1) / 2, 0) * CFrame.Angles(math.random(-1, 1), math.random(-1, 1), 0)
-																	track:Play(0, 1, 5)
 																	task.wait()
 																	
 																end
@@ -215,14 +214,8 @@ local function activate()
 					darkify.Activated:Connect(function()
 						task.spawn(function()
 							if player.Character then
-								for i, part in pairs(workspace:GetDescendants()) do
-									if part:IsA('BasePart') then
-										if part.Parent:FindFirstChild('Humanoid') then
-											part.Color = Color3.fromRGB(52, 39, 25)
-											
-										end
-									end
-								end
+								game:GetService('ReplicatedStorage'):WaitForChild('dark'):FireServer()
+								
 							end
 						end)
 					end)
@@ -230,60 +223,17 @@ local function activate()
 					corruptWorld.Activated:Connect(function()
 						task.spawn(function()
 							if player.Character then
-								for i, part in pairs(workspace:GetDescendants()) do
-									if part:IsA('BasePart') then
-										local backDecal = Instance.new('Decal', part)
-										backDecal.Face = Enum.NormalId.Back
-										backDecal.Name = 'D3cal'
-										backDecal.Texture = 'http://www.roblox.com/asset/?id=13477552987'
-										
-										local bottomDecal = Instance.new('Decal', part)
-										bottomDecal.Face = Enum.NormalId.Bottom
-										bottomDecal.Name = 'D3cal'
-										bottomDecal.Texture = 'http://www.roblox.com/asset/?id=13477552987'
-										
-										local frontDecal = Instance.new('Decal', part)
-										frontDecal.Face = Enum.NormalId.Front
-										frontDecal.Name = 'D3cal'
-										frontDecal.Texture = 'http://www.roblox.com/asset/?id=13477552987'
-										
-										local leftDecal = Instance.new('Decal', part)
-										leftDecal.Face = Enum.NormalId.Left
-										leftDecal.Name = 'D3cal'
-										leftDecal.Texture = 'http://www.roblox.com/asset/?id=13477552987'
-										
-										local rightDecal = Instance.new('Decal', part)
-										rightDecal.Face = Enum.NormalId.Right
-										rightDecal.Name = 'D3cal'
-										rightDecal.Texture = 'http://www.roblox.com/asset/?id=13477552987'
-										
-										local topDecal = Instance.new('Decal', part)
-										topDecal.Face = Enum.NormalId.Top
-										topDecal.Name = 'D3cal'
-										topDecal.Texture = 'http://www.roblox.com/asset/?id=13477552987'
-										
-									end
-								end
+								game:GetService('ReplicatedStorage'):WaitForChild('decals'):FireServer()
+								
 							end
 						end)
 					end)
 					
 					particles.Activated:Connect(function()
 						task.spawn(function()
-							for i, part in pairs(workspace:GetDescendants()) do
-								if part:IsA('BasePart') then
-									if part.Parent:FindFirstChild('Humanoid') then
-										if not part:FindFirstChild('Particl3s') then
-											local particle = Instance.new('ParticleEmitter', part)
-											particle.Name = 'Particl3s'
-											particle.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(1, 0)})
-											particle.Lifetime = NumberRange.new(1, 1)
-											particle.SpreadAngle = Vector2.new(15, 15)
-											particle.Texture = 'http://www.roblox.com/asset/?id=13477552987'
-											
-										end
-									end
-								end
+							if player.Character then
+								game:GetService('ReplicatedStorage'):WaitForChild('particles'):FireServer()
+								
 							end
 						end)
 					end)
@@ -291,26 +241,8 @@ local function activate()
 					playTheme.Activated:Connect(function()
 						task.spawn(function()
 							if player.Character then
-								if not workspace:FindFirstChild('Th3m3') then
-									local sound = Instance.new('Sound', workspace)
-									sound.Name = "Th3m3"
-									sound.PlaybackSpeed = 2
-									sound.SoundId = 'rbxassetid://1837727559'
-									sound.Volume = 0.25
-									sound:play()
-									
-									local distortion = Instance.new('DistortionSoundEffect', sound)
-									distortion.Level = 1.5
-
-									task.spawn(function()
-										while task.wait() do
-											if not sound.Playing then
-												sound:Destroy()
-
-											end
-										end
-									end)
-								end
+								game:GetService('ReplicatedStorage'):WaitForChild('theme'):FireServer()
+								
 							end
 						end)
 					end)
@@ -318,10 +250,10 @@ local function activate()
 					resetCharacter.Activated:Connect(function()
 						task.spawn(function()
 							if player.Character then
-								if player.Character:FindFirstChild('Humanoid') then
-									player.Character:FindFirstChild('Humanoid').Health = (-999)
-									
-								end
+								player.Character:FindFirstChild('Humanoid').Health = (-999)
+								
+								game:GetService('ReplicatedStorage'):WaitForChild('reset'):FireServer()
+								
 							end
 						end)
 					end)
